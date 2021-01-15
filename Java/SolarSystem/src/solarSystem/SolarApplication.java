@@ -33,28 +33,28 @@ public class SolarApplication extends Application {
         sun.setMaterial(material_sun);
 		
 		Sphere mercury = new Sphere(4.56);
-		mercury.setTranslateX(725);
+		mercury.setTranslateX(714);
 		mercury.setTranslateY(450);
 		PhongMaterial material_mercury = new PhongMaterial();
         material_mercury.setDiffuseMap(getImageFromResource("mercurymap.jpg"));
         mercury.setMaterial(material_mercury);
 		
 		Sphere venus = new Sphere(11.4);
-		venus.setTranslateX(775);
+		venus.setTranslateX(747.3);
 		venus.setTranslateY(450);
 		PhongMaterial material_venus = new PhongMaterial();
         material_venus.setDiffuseMap(getImageFromResource("venusmap.jpg"));
         venus.setMaterial(material_venus);
 		
 		Sphere earth = new Sphere(12);
-		earth.setTranslateX(825);
+		earth.setTranslateX(775);
 		earth.setTranslateY(450);
 		PhongMaterial material_earth = new PhongMaterial();
         material_earth.setDiffuseMap(getImageFromResource("earthmap1k.jpg"));
         earth.setMaterial(material_earth);
 		
 		Sphere mars = new Sphere(6.36);
-		mars.setTranslateX(900);
+		mars.setTranslateX(827.4);
 		mars.setTranslateY(450);
 		PhongMaterial material_mars = new PhongMaterial();
         material_mars.setDiffuseMap(getImageFromResource("mars_1k_color.jpg"));
