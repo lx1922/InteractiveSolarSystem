@@ -6,6 +6,7 @@ import javafx.scene.PerspectiveCamera;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Sphere;
 import javafx.stage.Stage;
@@ -14,6 +15,11 @@ public class SolarApplication extends Application {
 	
     private Image getImageFromResource(String resourcePath) {
         return new Image(this.getClass().getResourceAsStream(resourcePath));
+    }
+    
+    private Scene makeScene(Group planets) {
+    	 ImagePattern background = new ImagePattern(getImageFromResource("space.png"));
+         return new Scene(planets, 1200, 900, background);
     }
 
 	public void start(Stage stage) throws Exception {
@@ -26,14 +32,14 @@ public class SolarApplication extends Application {
         material_sun.setSpecularPower(0.1);
         sun.setMaterial(material_sun);
 		
-		Sphere mercury = new Sphere(5);
+		Sphere mercury = new Sphere(4.56);
 		mercury.setTranslateX(725);
 		mercury.setTranslateY(450);
 		PhongMaterial material_mercury = new PhongMaterial();
         material_mercury.setDiffuseMap(getImageFromResource("mercurymap.jpg"));
         mercury.setMaterial(material_mercury);
 		
-		Sphere venus = new Sphere(9);
+		Sphere venus = new Sphere(11.4);
 		venus.setTranslateX(775);
 		venus.setTranslateY(450);
 		PhongMaterial material_venus = new PhongMaterial();
@@ -47,7 +53,7 @@ public class SolarApplication extends Application {
         material_earth.setDiffuseMap(getImageFromResource("earthmap1k.jpg"));
         earth.setMaterial(material_earth);
 		
-		Sphere mars = new Sphere(14);
+		Sphere mars = new Sphere(6.36);
 		mars.setTranslateX(900);
 		mars.setTranslateY(450);
 		PhongMaterial material_mars = new PhongMaterial();
@@ -63,39 +69,12 @@ public class SolarApplication extends Application {
 		
 		PerspectiveCamera camera = new PerspectiveCamera();
 		
-		Scene scene = new Scene(planets, 1200, 900);
-		scene.setFill(Color.BLACK); 
+		Scene scene = makeScene(planets);
 		
 		scene.setCamera(camera);
 		stage.setTitle("Solar System");
 		stage.setScene(scene);
 		stage.show();
-		
-//		HBox hBox = new HBox();
-//		Scene scene = new Scene(hBox, 1200, 900);
-//		hBox.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
-//		Sphere sphere = new Sphere(200);
-//		PhongMaterial material = new PhongMaterial();
-//        material.setDiffuseMap(getImageFromResource("sunmap.jpg"));
-//        material.setSpecularPower(1);
-//	    sphere.setMaterial(material);
-//	    hBox.getChildren().add(sphere);
-//	    sphere.setTranslateX(400);
-//	    sphere.setTranslateY(250);
-//        RotateTransition rotateTransition = new RotateTransition();
-//        rotateTransition.setNode(sphere);
-//        rotateTransition.setDuration(Duration.seconds(15));
-//        rotateTransition.setAxis(Rotate.Y_AXIS);
-//        rotateTransition.setFromAngle(0);
-//        rotateTransition.setToAngle(360);
-//        rotateTransition.setInterpolator(Interpolator.LINEAR);
-//        rotateTransition.setCycleCount(Animation.INDEFINITE);
-//        rotateTransition.play();
-//    	PerspectiveCamera camera = new PerspectiveCamera();
-//    	camera.setTranslateY(-100);
-//	    scene.setCamera(camera);
-//		stage.setScene(scene);
-//		stage.show();
 	}
 	
 	public static void main(String[] args) {
